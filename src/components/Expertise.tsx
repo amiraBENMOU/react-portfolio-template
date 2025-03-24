@@ -1,44 +1,41 @@
 import React from "react";
 import '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faDocker, faPython } from '@fortawesome/free-brands-svg-icons';
+import { faReact,faNode, faPython,faJs ,faGithub,faSlack,faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faCodeBranch,faCodeCommit } from '@fortawesome/free-solid-svg-icons';
 import Chip from '@mui/material/Chip';
 import '../assets/styles/Expertise.scss';
 
 const labelsFirst = [
-    "React",
-    "TypeScript",
+    
     "JavaScript",
+    "React.js",
+    "Node.js",
+    'Express.js',
+    'Redux',
+    'Material-UI',
+    'Bootstrap',
+    'Django',
+    'Next JS',
     "HTML5",
-    "CSS3",
-    "SASS",
-    "Flask",
+    "CSS3",   
     "Python",
     "SQL",
     "PostgreSQL",
+    'MongoDB',
     "Postman"
 ];
 
 const labelsSecond = [
     "Git",
-    "GitHub Actions",
-    "Docker",
-    "AWS",
-    "Azure",
-    "Linux",
-    "Snowflake",
-    "Pandas",
-    "Selenium",
+    "GitHub command line",
+
 ];
 
 const labelsThird = [
-    "OpenAI",
-    "Groq",
-    "LangChain",
-    "Qdrant",
-    "Hugging Face",
-    "LlamaIndex",
-    "Streamlit",
+    "Discord",
+    "Slack",
+
 ];
 
 function Expertise() {
@@ -48,9 +45,12 @@ function Expertise() {
             <h1>Expertise</h1>
             <div className="skills-grid">
                 <div className="skill">
-                    <FontAwesomeIcon icon={faReact} size="3x"/>
+                <FontAwesomeIcon icon={faReact} size="3x" className="icon-spacing" />
+                <FontAwesomeIcon icon={faNode} size="3x" className="icon-spacing" />
+                <FontAwesomeIcon icon={faJs} size="3x" className="icon-spacing" />
+                <FontAwesomeIcon icon={faPython} size="3x" className="icon-spacing"/>
                     <h3>Full Stack Web Development</h3>
-                    <p>I have built a diverse array of web applications from scratch using modern technologies such as React and Flask. I have a strong proficiency in the SDLC process and frontend + backend development.</p>
+                    <p>I have built a diverse array of web applications from scratch using modern technologies such as React , Node js , express js  and Django. I have a strong proficiency in the  frontend and  backend development.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
                         {labelsFirst.map((label, index) => (
@@ -60,9 +60,12 @@ function Expertise() {
                 </div>
 
                 <div className="skill">
-                    <FontAwesomeIcon icon={faDocker} size="3x"/>
-                    <h3>DevOps & Automation</h3>
-                    <p>Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live.</p>
+                    <FontAwesomeIcon icon={faGithub} size="3x"className="icon-spacing"/>
+                    <FontAwesomeIcon icon={faCodeBranch} size="3x"className="icon-spacing"/>
+                    <FontAwesomeIcon icon={faCodeCommit} size="3x"className="icon-spacing"/>
+                    
+                    <h3>Git & Github </h3>
+                    <p>I use GitHub to manage code efficiently, track changes, and collaborate seamlessly with teams. With Git and GitHub, I ensure secure version control, smooth code integration, and streamlined project management.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
                         {labelsSecond.map((label, index) => (
@@ -72,9 +75,10 @@ function Expertise() {
                 </div>
 
                 <div className="skill">
-                    <FontAwesomeIcon icon={faPython} size="3x"/>
-                    <h3>GenAI & LLM</h3>
-                    <p>Stay relevant in the market by leveraging the latest AI models in your projects. I have professional experience building enterprise grade GenAI-enabled solutions to empower intelligent decision making.</p>
+                    <FontAwesomeIcon icon={faDiscord} size="3x"className="icon-spacing"/>
+                    <FontAwesomeIcon icon={faSlack} size="3x"className="icon-spacing"/>
+                    <h3>Team Managment</h3>
+                    <p> Woking on a team  , we usually use team collaboration tools or workplace communication platforms to work efficiently . They facilitate real-time messaging, file sharing, and integrations with other apps to improve team productivity and remote work .</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
                         {labelsThird.map((label, index) => (
