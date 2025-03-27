@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import '../assets/styles/Contact.scss';
- import emailjs from  "emailjs-com";
+ import emailjs from '@emailjs/browser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
@@ -16,7 +16,7 @@ function Contact() {
   const [emailError, setEmailError] = useState<boolean>(false);
   const [messageError, setMessageError] = useState<boolean>(false);
 
- // const form = useRef<HTMLFormElement | null>(null);
+  const form = useRef();
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -27,41 +27,40 @@ function Contact() {
 
     /* Uncomment below if you want to enable the emailJS */
 
-      if (name !== '' && email !== '' && message !== '') {
-       var templateParams = {
-         name: name,
-         email: email,
-         message: message
+     if (name !== '' && email !== '' && message !== '') {
+      var templateParams = {
+        name: name,
+       email: email,
+        message: message
       };
 
-       console.log(templateParams);
-       emailjs.send('service_cr5bdvq', 'template_o57qrxx', templateParams, 'VVrSdQuhxEQtTuzCPMRe7').then(
-         (response) => {
-           console.log('SUCCESS!', response.status, response.text);
+      console.log(templateParams);
+       emailjs.send('service_cr5bdvq', 'template_w0uy32b', templateParams, 'WHGVnWOytAvWbz81P').then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
          },
          (error) => {
            console.log('FAILED...', error);
          },
-       );
-      setName('');
-      setEmail('');
+      );
+       setName('');
+       setEmail('');
        setMessage('');
      }
   };
 
   return (
-   
     <div id="contact">
       <div className="items-container">
         <div className="contact_wrapper">
           <h1>Contact Me</h1>
           <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
           <Box
+            ref={form}
             component="form"
             noValidate
             autoComplete="off"
             className='contact-form'
-            onSubmit={sendEmail}
           >
             <div className='form-flex'>
               <TextField
@@ -71,16 +70,10 @@ function Contact() {
                 placeholder="What's your name?"
                 value={name}
                 onChange={(e) => {
-                  console.log(e.target.value);
                   setName(e.target.value);
                 }}
                 error={nameError}
                 helperText={nameError ? "Please enter your name" : ""}
-                sx={{
-                  "& .MuiInputBase-input": { color: "black", backgroundColor: "white" }, // Ensure text is visible
-                  "& .MuiInputLabel-root": { color: "blue" }, // Label color
-                  "& .MuiFormHelperText-root": { color: "red" }, // Helper text color
-                }}
               />
               <TextField
                 required
@@ -89,16 +82,10 @@ function Contact() {
                 placeholder="How can I reach you?"
                 value={email}
                 onChange={(e) => {
-                  console.log(e.target.value);
                   setEmail(e.target.value);
                 }}
                 error={emailError}
                 helperText={emailError ? "Please enter your email or phone number" : ""}
-                sx={{
-                  "& .MuiInputBase-input": { color: "black", backgroundColor: "white" }, // Ensure text is visible
-                  "& .MuiInputLabel-root": { color: "blue" }, // Label color
-                  "& .MuiFormHelperText-root": { color: "red" }, // Helper text color
-                }}
               />
             </div>
             <TextField
@@ -111,18 +98,12 @@ function Contact() {
               className="body-form"
               value={message}
               onChange={(e) => {
-                console.log(e.target.value);
                 setMessage(e.target.value);
               }}
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
-              sx={{
-                "& .MuiInputBase-input": { color: "black", backgroundColor: "white" }, // Ensure text is visible
-                "& .MuiInputLabel-root": { color: "blue" }, // Label color
-                "& .MuiFormHelperText-root": { color: "red" }, // Helper text color
-              }}
             />
-            <Button  type="submit" variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
+            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
               Send
             </Button>
           </Box>
