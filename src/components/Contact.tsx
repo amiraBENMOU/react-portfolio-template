@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import '../assets/styles/Contact.scss';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
  import emailjs from '@emailjs/browser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -38,16 +40,26 @@ function Contact() {
        emailjs.send('service_cr5bdvq', 'template_w0uy32b', templateParams, 'WHGVnWOytAvWbz81P').then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
+          toast.success('Message sent successfully!', {
+            position: "top-right",
+          });
+          setName('');
+          setEmail('');
+          setMessage('');
          },
          (error) => {
            console.log('FAILED...', error);
-         },
-      );
-       setName('');
-       setEmail('');
-       setMessage('');
-     }
-  };
+           toast.error('Failed to send the message. Please try again.', {
+            position: "top-right",
+             });
+            }
+          );
+        } else {
+          toast.error('Please fill out all required fields.', {
+            position: "top-right",
+          });
+        }
+      };
 
   return (
     <div id="contact">
@@ -55,6 +67,7 @@ function Contact() {
         <div className="contact_wrapper">
           <h1>Contact Me</h1>
           <p> Let's collaborate and make it happen!</p>
+          <ToastContainer />
           <Box
             ref={form}
             component="form"
