@@ -18,11 +18,8 @@
     color: white;
   }
 
-  fieldset {
-    background-color: white;
-  }
-}
-
+ 
+  
 label {
   font-size: 1.2rem;
   font-family: 'DomaineDispNar-Medium', sans-serif;
@@ -45,4 +42,10 @@ form {
 .body-form {
   width: 100% !important;
   margin-bottom: 15px !important;
+  background-color: aliceblue;
+}
+.textField{
+background-color: aliceblue;
+}
+
 }

@@ -16,7 +16,7 @@ function Contact() {
   const [emailError, setEmailError] = useState<boolean>(false);
   const [messageError, setMessageError] = useState<boolean>(false);
 
-  const form = useRef();
+  const form = useRef<HTMLFormElement | null>(null);
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -64,28 +64,32 @@ function Contact() {
           >
             <div className='form-flex'>
               <TextField
+              className='textField'
                 required
                 id="outlined-required"
                 label="Your Name"
                 placeholder="What's your name?"
                 value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                onChange={(e) => setName(e.target.value)}
                 error={nameError}
                 helperText={nameError ? "Please enter your name" : ""}
+                sx={{
+                  "& .MuiInputBase-input": {
+                    color: "black", // Change text color inside the input
+                  },
+                }}
               />
               <TextField
                 required
+                className='textField'
                 id="outlined-required"
                 label="Email / Phone"
                 placeholder="How can I reach you?"
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
                 error={emailError}
                 helperText={emailError ? "Please enter your email or phone number" : ""}
+                
               />
             </div>
             <TextField
@@ -97,11 +101,14 @@ function Contact() {
               rows={10}
               className="body-form"
               value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
+              onChange={(e) => setMessage(e.target.value)}
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
+              sx={{
+                "& .MuiInputBase-input": {
+                  color: "black", // Change text color inside the input
+                },
+              }}
             />
             <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
               Send
