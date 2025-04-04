@@ -14,14 +14,9 @@ import '../assets/styles/Project.scss';
 function Project() {
     return(
     <div className="projects-container" id="projects">
-        <h1>Personal Projects</h1>
+        <h1> Personal Projects</h1>
         <div className="projects-grid">
-        <div className="project">
-                <a href="https://whimsical-smakager-54526e.netlify.app/" target="_blank" rel="noreferrer"><img src={mock05} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://whimsical-smakager-54526e.netlify.app/" target="_blank" rel="noreferrer"><h2>AIESEC Landing  Page</h2></a>
-                <p>This is a landing page created with React js .</p>
-            </div>
-            <div className="project">
+         <div className="project">
                 <a href="https://youtu.be/lZj7ClqxixY" target="_blank" rel="noreferrer"><img src={mock06} className="zoom" alt="thumbnail" width="100%"/></a>
                 <a href="https://youtu.be/lZj7ClqxixY" target="_blank" rel="noreferrer"><h2>Khedemni Platform</h2></a>
                 <p>This is a service platform.  My target is mainly the students and fresh graduates. You will find three types of works that are ; part time jobs, internships and PFE. This platform was developed using html ,css ,javascripy react.js , node.js , material UI , react bootstrap and I also used third-party APIs , redux, and hbs to create reports and multer to upload pdf’s .
